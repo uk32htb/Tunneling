@@ -1,4 +1,4 @@
-Chisel :- Best tool to be used for Pivorting the Internal Network. 
+Chisel
 
 Step 1) Run the below command in the Kali machine 
        umarkhan# ./chisel server -p 8001 --reverse
