@@ -1,0 +1,17 @@
+We can get the access for the internal network using SSH local port forwarding 
+
+umarkhan$ ssh -L 1234:localhost:3306 <username>@<Victim IP address>
+
+We can alo use Proxychanins to forward the traffic to Internal network to Kali machine. 
+
+Step 1) Make changes to ProxyChains 
+        umarkhan$ tail -4 /etc/proxychains.conf
+
+Step 2) We can use Proxychains to check the access 
+        umarkhan$ proxychains nmap -v -sn <Internal IP address>
+
+
+
+We can also use Proxychains to get RDP to internal servers.
+umarkhan$ proxychains xfreerdp /v:<Internal IP of server> /u:<username> /p:<password> --dynamic-resolution 
+
